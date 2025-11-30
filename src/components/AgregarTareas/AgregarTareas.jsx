@@ -2,9 +2,11 @@ import { useState } from "react";
 import "./AgregarTareas.css";
 
 export default function AgregarTareas() {
-  const tarea = { tarea: "", color: "" };
+  const tarea = { tarea: "", color: "#ff00aa" };
   const tareasGuardadas = "nuevasTareas";
-  const [nuevaTarea, setNuevaTarea] = useState(JSON.parse(localStorage.getItem(tareasGuardadas) || tarea));
+  const [nuevaTarea, setNuevaTarea] = useState(
+    JSON.parse(localStorage.getItem(tareasGuardadas)) || tarea
+  );
 
   const manejarCambios = (e) => {
     setNuevaTarea({
@@ -17,7 +19,16 @@ export default function AgregarTareas() {
     e.preventDefault();
     console.log(nuevaTarea);
 
+    const tareaIncompleta = {
+      id: crypto.randomUUID(),
+      texto: nuevaTarea.tarea,
+      color: nuevaTarea.color,
+      completada: false,
+    };
+
     const listaActual = JSON.parse(localStorage.getItem("tareas")) || [];
+
+    const nuevaLista = [...listaActual, tareaIncompleta];
 
     localStorage.setItem("tareas", JSON.stringify(nuevaLista));
 
@@ -36,20 +47,25 @@ export default function AgregarTareas() {
             type="text"
             name="tarea"
             placeholder="Nueva tarea"
-            minlength="4"
+            minLength="4"
             value={nuevaTarea.tarea}
             onChange={manejarCambios}
           />
         </label>
-        <label className="subtitulo"
-            >Color:<br /><input id="inputColor" 
+        <label className="subtitulo">
+          Color:
+          <br />
+          <input
+            id="inputColor"
             name="color"
             type="color"
             value={nuevaTarea.color}
             onChange={manejarCambios}
-          /></label>
-          <button type="submit"
-          className="btn-agregar">Agregar</button>
+          />
+        </label>
+        <button type="submit" className="btn-agregar">
+          Agregar
+        </button>
       </form>
     </div>
   );
