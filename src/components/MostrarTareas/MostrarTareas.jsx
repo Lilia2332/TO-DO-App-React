@@ -16,9 +16,9 @@ export default function MostrarTareas() {
   return (
     <div>
       {tareas.length === 0 && <p>No hay tareas pendientes.</p>}
-      <ul>
+      <ul className="lista">
         {tareas.map((t) => (
-          <li key={t.id} className="lista">
+          <li key={t.id} className={`item ${t.completada ? "completada" : ""}`}>
             {t.texto}
             <button onClick={() => tareaCompletada(t.id)}></button>
             <button></button>

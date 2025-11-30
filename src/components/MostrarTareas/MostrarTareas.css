@@ -1,0 +1,24 @@
+.lista {
+  display: grid;
+  align-items: center;
+  max-width: 400px;
+  gap: 10px;
+  width: 350px;
+  margin: 20px auto;
+  font-family: sans-serif;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.completada {
+  text-decoration-line: line-through;
+  color: gray;
+}
