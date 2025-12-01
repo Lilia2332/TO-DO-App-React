@@ -1,13 +1,17 @@
 import { useState } from "react";
 import "./AgregarTareas.css";
 
-export default function AgregarTareas({ tareas, setTareas }) {
+export default function AgregarTareas({
+  tareas,
+  setTareas,
+  buscador,
+  setBuscador,
+}) {
   const tarea = { tarea: "", color: "#ff00aa" };
   const tareasGuardadas = "nuevasTareas";
   const [nuevaTarea, setNuevaTarea] = useState(
     JSON.parse(localStorage.getItem(tareasGuardadas)) || tarea
   );
-  
 
   const manejarCambios = (e) => {
     setNuevaTarea({
@@ -64,6 +68,16 @@ export default function AgregarTareas({ tareas, setTareas }) {
             value={nuevaTarea.color}
             onChange={manejarCambios}
           />
+        </label>
+        <label className="subtitulo">
+          Buscador: <br />
+          <input
+            id="inputBuscar"
+            type="text"
+            placeholder="Buscar Tareas..."
+            value={buscador}
+            onChange={(e) => setBuscador(e.target.value)}
+          ></input>
         </label>
         <button type="submit" className="btn-agregar">
           Agregar

@@ -1,0 +1,25 @@
+.contenedor {
+  display: block;
+  width: 90%;
+  margin-top: 40px;
+  margin: 40px;
+  padding: 30px 30px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.titulo {
+  display: block;
+  text-align: center;
+  font-size: 50px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ff8fab, #ff5c8a, #b565a7);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Poppins";
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: background 0.6s ease;
+}
