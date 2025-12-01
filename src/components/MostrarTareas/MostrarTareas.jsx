@@ -18,17 +18,34 @@ export default function MostrarTareas({ tareas, setTareas, buscador }) {
     localStorage.setItem("tareas", JSON.stringify(filtradas));
   };
 
-  const termino = (buscador || "").trim().toLowerCase();
-  const tareasFiltradas = termino
-    ? tareas.filter((t) => (t.texto || "").toLowerCase().includes(termino))
-    : tareas;
-
   const eliminarCompletadas = () => {
     const finalizadas = tareas.filter((t) => !t.completada);
 
     setTareas(finalizadas);
     localStorage.setItem("tareas", JSON.stringify(finalizadas));
   };
+
+  const termino = (buscador || "").trim().toLowerCase();
+  const tareasFiltradas = termino
+    ? tareas.filter((t) => (t.texto || "").toLowerCase().includes(termino))
+    : tareas;
+  
+    const esColorOscuro = (color) => {
+  if (!color) return false; 
+  let hex = color.replace("#", "");
+  if (hex.length === 3) {
+    hex = hex.split("").map((c) => c + c).join("");
+  }
+
+  const r = parseInt(hex.substring(0, 2), 16);
+  const g = parseInt(hex.substring(2, 4), 16);
+  const b = parseInt(hex.substring(4, 6), 16);
+
+  const luminancia = 0.299 * r + 0.587 * g + 0.114 * b;
+
+  return luminancia < 186;
+};
+  
   return (
     <div>
       {tareas.length === 0 && <p>No hay tareas pendientes.</p>}
@@ -53,7 +70,9 @@ export default function MostrarTareas({ tareas, setTareas, buscador }) {
             <li
               key={t.id}
               className="item"
-              style={{ backgroundColor: t.color }}
+              style={{ backgroundColor: t.color,
+              color: esColorOscuro(t.color) ? "white" : "black",
+               }}
             >
               <p className={`texto ${t.completada ? "completada" : ""}`}>
                 {t.texto}
