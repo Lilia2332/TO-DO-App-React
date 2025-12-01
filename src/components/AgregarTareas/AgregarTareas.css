@@ -45,7 +45,7 @@
 .btn-agregar {
   width: 100%;
   padding: 0.8rem;
-  background: linear-gradient(135deg, #ff008c, #ff62d3);
+  background: linear-gradient(135deg, #dd80f0, #ff62d3);
   color: white;
   font-size: 1.1rem;
   font-weight: 700;
@@ -57,7 +57,7 @@
 }
 
 .btn-agregar:hover {
-  background: linear-gradient(135deg, #ff62d3, #ff008c);
+  background: linear-gradient(135deg, #ed62ff, #941294);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(255, 0, 170, 0.45);
 }

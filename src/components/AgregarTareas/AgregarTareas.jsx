@@ -7,7 +7,7 @@ export default function AgregarTareas({
   buscador,
   setBuscador,
 }) {
-  const tarea = { tarea: "", color: "#ff00aa" };
+  const tarea = { tarea: "", color: "#f1b5ddff" };
   const tareasGuardadas = "nuevasTareas";
   const [nuevaTarea, setNuevaTarea] = useState(
     JSON.parse(localStorage.getItem(tareasGuardadas)) || tarea
