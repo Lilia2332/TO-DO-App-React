@@ -46,29 +46,34 @@ export default function MostrarTareas({ tareas, setTareas, buscador }) {
         </button>
       )}
       <ul className="lista">
-        {tareasFiltradas.map((t) => (
-          <li
-            key={t.id}
-            className="item"
-            style={{ backgroundColor: t.color }}
-          >
-            <p className={`texto ${t.completada ? "completada" : ""}`}>{t.texto}</p>
-            <div className="botones">
-              <button
-                className="btn-completar"
-                onClick={() => tareaCompletada(t.id)}
-              >
-                ✔
-              </button>
-              <button
-                className="btn-eliminar"
-                onClick={() => eliminarTarea(t.id)}
-              >
-                ✖
-              </button>
-            </div>
-          </li>
-        ))}
+        {tareasFiltradas
+          .slice()
+          .sort((a, b) => a.completada - b.completada)
+          .map((t) => (
+            <li
+              key={t.id}
+              className="item"
+              style={{ backgroundColor: t.color }}
+            >
+              <p className={`texto ${t.completada ? "completada" : ""}`}>
+                {t.texto}
+              </p>
+              <div className="botones">
+                <button
+                  className="btn-completar"
+                  onClick={() => tareaCompletada(t.id)}
+                >
+                  ✔
+                </button>
+                <button
+                  className="btn-eliminar"
+                  onClick={() => eliminarTarea(t.id)}
+                >
+                  ✖
+                </button>
+              </div>
+            </li>
+          ))}
       </ul>
     </div>
   );
