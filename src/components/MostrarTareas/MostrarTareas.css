@@ -9,6 +9,7 @@
 }
 
 .item {
+  max-width: 400px;
   padding: 14px 18px;
   border-radius: 14px;
   background: white;
