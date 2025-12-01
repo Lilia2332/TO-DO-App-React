@@ -14,7 +14,8 @@
 }
 
 #inputTarea,
-#inputColor, #inputBuscar {
+#inputColor,
+#inputBuscar {
   margin-top: 6px;
   padding: 0.6rem 0.8rem;
   border-radius: 8px;

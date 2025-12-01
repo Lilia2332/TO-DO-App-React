@@ -12,7 +12,12 @@ export default function ContenedorTareas() {
   return (
     <div className="contenedor">
       <h1 className="titulo">TO-DO</h1>
-      <AgregarTareas tareas={tareas} setTareas={setTareas} buscador={buscador} setBuscador={setBuscador} />
+      <AgregarTareas
+        tareas={tareas}
+        setTareas={setTareas}
+        buscador={buscador}
+        setBuscador={setBuscador}
+      />
       <MostrarTareas
         tareas={tareas}
         setTareas={setTareas}
