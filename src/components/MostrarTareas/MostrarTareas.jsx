@@ -1,17 +1,23 @@
 import { useState } from "react";
 import "./MostrarTareas.css";
 
-export default function MostrarTareas() {
-  const [tareas, setTareas] = useState(JSON.parse(localStorage.getItem("tareas")) || []
-);
+export default function MostrarTareas({ tareas, setTareas }) {
+
   const tareaCompletada = (id) => {
     const pendientes = tareas.map((t) =>
-    t.id === id ? { ...t, completada: !t.completada } : t
-  );
+      t.id === id ? { ...t, completada: !t.completada } : t
+    );
 
-  setTareas(pendientes);
-  localStorage.setItem("tareas", JSON.stringify(pendientes));
+    setTareas(pendientes);
+    localStorage.setItem("tareas", JSON.stringify(pendientes));
   };
+
+  const eliminarTarea = (id) => {
+    const filtradas = tareas.filter((t) => t.id !== id);
+
+    setTareas(filtradas);
+    localStorage.setItem("tareas", JSON.stringify(filtradas));
+  }
 
   return (
     <div>
@@ -20,11 +26,11 @@ export default function MostrarTareas() {
         {tareas.map((t) => (
           <li key={t.id} className={`item ${t.completada ? "completada" : ""}`}>
             {t.texto}
-            <button onClick={() => tareaCompletada(t.id)}></button>
-            <button></button>
+            <button onClick={() => tareaCompletada(t.id)}>✔</button>
+            <button onClick={() => eliminarTarea(t.id)}>✖</button>
           </li>
         ))}
       </ul>
     </div>
-  )
+  );
 }

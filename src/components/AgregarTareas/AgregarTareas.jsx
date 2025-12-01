@@ -1,12 +1,13 @@
 import { useState } from "react";
 import "./AgregarTareas.css";
 
-export default function AgregarTareas() {
+export default function AgregarTareas({ tareas, setTareas }) {
   const tarea = { tarea: "", color: "#ff00aa" };
   const tareasGuardadas = "nuevasTareas";
   const [nuevaTarea, setNuevaTarea] = useState(
     JSON.parse(localStorage.getItem(tareasGuardadas)) || tarea
   );
+  
 
   const manejarCambios = (e) => {
     setNuevaTarea({
@@ -17,7 +18,6 @@ export default function AgregarTareas() {
 
   const enviarTarea = (e) => {
     e.preventDefault();
-    console.log(nuevaTarea);
 
     const tareaIncompleta = {
       id: crypto.randomUUID(),
@@ -31,6 +31,8 @@ export default function AgregarTareas() {
     const nuevaLista = [...listaActual, tareaIncompleta];
 
     localStorage.setItem("tareas", JSON.stringify(nuevaLista));
+
+    setTareas(nuevaLista);
 
     localStorage.setItem(tareasGuardadas, JSON.stringify(nuevaTarea));
 
