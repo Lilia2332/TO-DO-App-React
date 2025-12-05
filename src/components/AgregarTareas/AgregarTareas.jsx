@@ -51,7 +51,7 @@ export default function AgregarTareas({
             id="inputTarea"
             type="text"
             name="tarea"
-            placeholder="Nueva tarea"
+            placeholder="Nueva tarea..."
             minLength="4"
             value={nuevaTarea.tarea}
             onChange={manejarCambios}

@@ -37,7 +37,7 @@
   outline: none;
   font-size: 16px;
   margin-top: 6px;
-
+  font-family: "Poppins";
   transition: .3s;
 }
 
@@ -86,7 +86,7 @@
 }
 
 .formulario-oscuro input::placeholder {
-  color: #d3bdf5;
+  color: #676768;
 }
 
 .formulario-oscuro .btn-agregar {
