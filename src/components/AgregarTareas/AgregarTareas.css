@@ -1,68 +1,101 @@
-.subtitulo {
-  font-size: 14px;
-  color: #888888;
-  font-style: italic;
-  text-align: left;
-}
-
 .formulario {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  width: 100%;
-  margin: 2px auto;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 25px;
+  margin: 30px auto;
+  width: 60%;
+  max-width: 480px;
+
+  background: #ffffffd7;
+  border: 2px solid #ff8fab;
+  border-radius: 14px;
+  box-shadow: 0 0 12px rgba(255, 143, 171, 0.35);
+
+  transition: transform .3s, box-shadow .3s;
 }
 
-#inputTarea,
-#inputColor,
-#inputBuscar {
-  margin-top: 6px;
-  padding: 0.6rem 0.8rem;
+.formulario:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 18px rgba(181, 101, 167, 0.5);
+}
+
+.subtitulo {
+  font-weight: 600;
+  font-size: 18px;
+  font-family: "Poppins";
+  color: #b565a7;
+  text-align: center;
+}
+
+#inputTarea {
+  width: 100%;
+  padding: 10px 14px;
   border-radius: 8px;
-  border: 2px solid #ff7ac4;
+  border: 2px solid #ff8fab;
   outline: none;
-  transition: all 0.3s ease;
-  font-size: 1rem;
+  font-size: 16px;
+  margin-top: 6px;
+
+  transition: .3s;
 }
 
 #inputTarea:focus {
-  border-color: #ff008c;
-  box-shadow: 0 0 6px #ff4bb5;
+  border-color: #b565a7;
+  box-shadow: 0 0 6px #ff8fab91;
 }
 
 #inputColor {
-  width: 70px;
+  margin-top: 6px;
+  width: 60px;
   height: 40px;
-  padding: 0;
+  border-radius: 6px;
   cursor: pointer;
-  border-radius: 8px;
-  transition: transform 0.2s ease;
-}
-
-#inputColor:hover {
-  transform: scale(1.1);
+  border: 2px solid #ff8fab;
 }
 
 .btn-agregar {
-  width: 100%;
-  padding: 0.8rem;
-  background: linear-gradient(135deg, #dd80f0, #ff62d3);
+  background: linear-gradient(90deg, #ff8fab, #ff5c8a, #b565a7);
   color: white;
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: 17px;
+  font-weight: bold;
   border: none;
   border-radius: 10px;
+  padding: 10px 25px;
   cursor: pointer;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 10px rgba(255, 0, 170, 0.3);
+  transition: .3s;
 }
 
 .btn-agregar:hover {
-  background: linear-gradient(135deg, #ed62ff, #941294);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(255, 0, 170, 0.45);
+  transform: scale(1.08);
+  box-shadow: 0 0 12px rgba(255, 143, 171, 0.8);
 }
 
-.btn-agregar:active {
-  transform: scale(0.97);
+.formulario-oscuro {
+  background: #2b2b2b;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.12);
+}
+
+.formulario-oscuro input {
+  background: #3c3c3c;
+  color: #f1e6ff;
+  border: 2px solid #b084f4;
+}
+
+.formulario-oscuro input::placeholder {
+  color: #d3bdf5;
+}
+
+.formulario-oscuro .btn-agregar {
+  background: linear-gradient(90deg, #3a1f55, #5b2f86, #7947b5);
+  box-shadow: 0 6px 14px rgba(121, 71, 181, 0.6);
+  color: #e6d7ff;
+  box-shadow: 0 0 10px rgba(111, 53, 168, .6);
+}
+.formulario-oscuro .btn-agregar:hover {
+  background: linear-gradient(90deg, #3a1f55, #5b2f86, #7947b5);
+  box-shadow: 0 6px 14px rgba(121, 71, 181, 0.6);
 }

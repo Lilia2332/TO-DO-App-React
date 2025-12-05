@@ -4,8 +4,7 @@ import "./AgregarTareas.css";
 export default function AgregarTareas({
   tareas,
   setTareas,
-  buscador,
-  setBuscador,
+  buscador, modoOscuro
 }) {
   const tarea = { tarea: "", color: "#f1b5ddff" };
   const tareasGuardadas = "nuevasTareas";
@@ -45,9 +44,9 @@ export default function AgregarTareas({
 
   return (
     <div>
-      <form className="formulario" onSubmit={enviarTarea}>
+      <form className={`formulario ${modoOscuro ? "formulario-oscuro" : ""}`} onSubmit={enviarTarea}>
         <label className="subtitulo">
-          Tareas pendientes: <br />
+          Agregar una nueva tarea: <br />
           <input
             id="inputTarea"
             type="text"
@@ -68,16 +67,6 @@ export default function AgregarTareas({
             value={nuevaTarea.color}
             onChange={manejarCambios}
           />
-        </label>
-        <label className="subtitulo">
-          Buscador: <br />
-          <input
-            id="inputBuscar"
-            type="text"
-            placeholder="Buscar Tareas..."
-            value={buscador}
-            onChange={(e) => setBuscador(e.target.value)}
-          ></input>
         </label>
         <button type="submit" className="btn-agregar">
           Agregar

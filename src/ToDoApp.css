@@ -4,3 +4,28 @@
   font-weight: 400;
   color: #333;
 }
+body {
+  min-height: 100vh;
+  font-family: "Poppins";
+  background: linear-gradient(
+    135deg,
+    #ffe6f4 0%,
+    #ffc2e3 30%,
+    #ff9ed1 60%,
+    #ff7cc3 100%
+  );
+  background-attachment: fixed;
+  transition: background 0.6s ease;
+}
+
+body.oscuro {
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #1e0d29 0%,
+    #2d0f3a 35%,
+    #3c1350 70%,
+    #4c1f63 100%
+  );
+  color: #eee;
+}
