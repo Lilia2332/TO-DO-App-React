@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./BuscadorTareas.css";
 
 export default function BuscadorTareas({
@@ -7,11 +6,10 @@ export default function BuscadorTareas({
   modoOscuro,
   setModoOscuro,
 }) {
-
   const cambiarTema = () => {
-  setModoOscuro(!modoOscuro);
-  document.body.classList.toggle("oscuro");
-};
+    setModoOscuro((prev) => !prev);
+    document.body.classList.toggle("oscuro");
+  };
 
   return (
     <nav className={`navegacion ${modoOscuro ? "oscuro" : ""}`}>

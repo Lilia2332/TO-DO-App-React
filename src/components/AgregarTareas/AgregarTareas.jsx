@@ -2,9 +2,7 @@ import { useState } from "react";
 import "./AgregarTareas.css";
 
 export default function AgregarTareas({
-  tareas,
-  setTareas,
-  buscador, modoOscuro
+  setTareas, modoOscuro
 }) {
   const tarea = { tarea: "", color: "#f1b5ddff" };
   const tareasGuardadas = "nuevasTareas";

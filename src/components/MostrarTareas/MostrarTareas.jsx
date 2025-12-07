@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./MostrarTareas.css";
 
 export default function MostrarTareas({ tareas, setTareas, buscador }) {
