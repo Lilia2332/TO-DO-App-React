@@ -16,7 +16,6 @@ export default function ContenedorTareas({ modoOscuro, setModoOscuro}) {
         setBuscador={setBuscador} modoOscuro={modoOscuro} setModoOscuro={setModoOscuro}
         />
       <AgregarTareas
-        tareas={tareas}
         setTareas={setTareas}
         modoOscuro={modoOscuro}
       />
