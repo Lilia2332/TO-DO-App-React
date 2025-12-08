@@ -12,7 +12,7 @@ export default function BuscadorTareas({
   };
 
   return (
-    <nav className={`navegacion ${modoOscuro ? "oscuro" : ""}`}>
+    <header className={`header ${modoOscuro ? "oscuro" : ""}`}>
       <div className="inicio">
         <img
           src="https://cdn-icons-png.flaticon.com/512/2038/2038509.png"
@@ -21,7 +21,7 @@ export default function BuscadorTareas({
         />
         <h1 className="titulo">TO-DO</h1>
       </div>
-      <div className="nav">
+      <nav className="nav">
         <div className="buscador">
           <label></label>
           <input
@@ -36,7 +36,7 @@ export default function BuscadorTareas({
         <button className="modo" onClick={cambiarTema}>
           Cambiar tema
         </button>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 }

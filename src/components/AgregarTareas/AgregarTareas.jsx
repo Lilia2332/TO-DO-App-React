@@ -1,9 +1,7 @@
 import { useState } from "react";
 import "./AgregarTareas.css";
 
-export default function AgregarTareas({
-  setTareas, modoOscuro
-}) {
+export default function AgregarTareas({ setTareas, modoOscuro }) {
   const tarea = { tarea: "", color: "#f1b5ddff" };
   const tareasGuardadas = "nuevasTareas";
   const [nuevaTarea, setNuevaTarea] = useState(
@@ -19,6 +17,28 @@ export default function AgregarTareas({
 
   const enviarTarea = (e) => {
     e.preventDefault();
+    const textoLimpio = nuevaTarea.tarea.trim();
+
+    if (textoLimpio === "") {
+      alert("La tarea no puede estar vacía");
+      return;
+    }
+
+    if (textoLimpio.length < 4) {
+      alert("La tarea debe tener al menos 4 caracteres");
+      return;
+    }
+
+    const listaActual = JSON.parse(localStorage.getItem("tareas")) || [];
+
+    const duplicada = listaActual.some(
+      (t) => t.texto.toLowerCase() === textoLimpio.toLowerCase()
+    );
+
+    if (duplicada) {
+      alert("Esa tarea ya existe");
+      return;
+    }
 
     const tareaIncompleta = {
       id: crypto.randomUUID(),
@@ -26,9 +46,7 @@ export default function AgregarTareas({
       color: nuevaTarea.color,
       completada: false,
     };
-
-    const listaActual = JSON.parse(localStorage.getItem("tareas")) || [];
-
+    
     const nuevaLista = [...listaActual, tareaIncompleta];
 
     localStorage.setItem("tareas", JSON.stringify(nuevaLista));
@@ -42,7 +60,10 @@ export default function AgregarTareas({
 
   return (
     <div>
-      <form className={`formulario ${modoOscuro ? "formulario-oscuro" : ""}`} onSubmit={enviarTarea}>
+      <form
+        className={`formulario ${modoOscuro ? "formulario-oscuro" : ""}`}
+        onSubmit={enviarTarea}
+      >
         <label className="subtitulo">
           Agregar una nueva tarea: <br />
           <input
